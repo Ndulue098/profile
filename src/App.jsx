@@ -2,13 +2,17 @@ import { Github, Linkedin, Quote, Twitter } from "lucide-react";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [time,setTime]=useState()
-  useEffect(()=>{
-    const timeMs=new Date().getTime()
-    setTime(timeMs)
-  },[])
+  const [time, setTime] = useState(new Date().getTime());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date().getTime());
+    }, 1000); // updates every second
+
+    return () => clearInterval(interval); // cleanup on unmount
+  }, []);
   return (
-    <div className="bg-purple-400/20 min-h-screen flex items-center p-6 "> 
+    <div className="bg-purple-400/20 min-h-screen flex items-center p-6 ">
       <main className="max-w-3xl sm:h-full w-full mx-auto outline-offset-4 outline-2 outline-gray-800  sm:flex sm:flex-row  flex-col mt-8 rounded-lg overflow-hidden bg-gray-100 text-gray-900">
         {/* Left Section */}
         <div className="sm:w-52 sm:h-auto h-18 bg-purple-400/80 relative border-r border-gray-700 flex sm:flex-col justify-between ">
@@ -24,9 +28,27 @@ function App() {
 
           {/* Social icons */}
           <aside className="p-1 w-full flex items-center sm:gap-0 mt-auto sm:justify-evenly justify-end sm:border-t gap-4">
-            <Linkedin size={20} className="" />
-            <Twitter size={20} className="" />
-            <Github size={20} className="" />
+            <a
+              href="https://x.com/Ndulue47"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter size={18} className="" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/christian-ndulue-9b95a9228/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin size={18} className="" />
+            </a>
+            <a
+              href="https://github.com/Ndulue098"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={18} className="" />
+            </a>
           </aside>
         </div>
 
@@ -34,9 +56,7 @@ function App() {
         <div className="bg-gray-100 sm:p-6 p-4 sm:rounded-b-none rounded-b-md sm:pt-5 pt-16 sm:rounded-r-md  outline sm:pl-18 flex flex-col border-l  border-gray-700 border">
           <small className="ml-auto rounded-sm mb-4 border border-gray-700 px-1.5 py-0.5 tracking-widest text-xs text-gray-600">
             Time:
-            <span className="text-[10px] text-purple-700 ml-1">
-              {time} ms
-            </span>
+            <span className="text-[10px] text-purple-700 ml-1">{time} ms</span>
           </small>
 
           <div className="border-b border-gray-700 pb-2 mb-6 ">
