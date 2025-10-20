@@ -33,6 +33,7 @@ export default function Contact() {
   async function onSubmit(data) {
     console.log(data);
     reset()
+     alert("✅ Message sent!");
     // emailjs
     //   .send(
     //     "service_s6huptd", // ✅ your service ID

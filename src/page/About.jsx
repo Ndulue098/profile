@@ -46,7 +46,7 @@ export default function About() {
 
       {/* Areas for Improvement */}
       <div className="mb-3">
-        <h3 className="text-md font-semibold text-purple-800 ">Areas of Log Confidence</h3>
+        <h3 className="text-md font-semibold text-purple-800 ">Areas of Low Confidence</h3>
         <p className="text-gray-700 leading-relaxed ml-1">
           I sometimes get carried away when designing UI — I enjoy it so much that I lose track
           of time! I’m learning to balance creativity with focus and structure.
