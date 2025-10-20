@@ -21,9 +21,9 @@ export default function About() {
           Hey, I’m <span className="font-semibold text-purple-700">Ndulue Christian</span> — 
           proudly from <span className="font-medium">Anambra State, Nigeria</span>, 
           and currently living in the ever-busy city of <span className="font-medium">Lagos</span>.  
-          I’m a student of <span className="font-medium">Biology</span> at the 
+          I’m a student of <span className="font-medium">Building</span> at the 
           <span className="font-medium"> University of Lagos (Unilag)</span>, where I’m learning to
-          understand life from both a scientific and creative perspective.
+          understand life from both a structural and creative perspective.
         </p>
 
         <p className="text-gray-700 leading-relaxed ml-1">
