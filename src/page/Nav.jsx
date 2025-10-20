@@ -18,7 +18,7 @@ export default function Nav() {
       </div>
 
       {/* Social icons */}
-      <aside className="flex flex-col items-end gap-3 sm:gap-0 sm:inline ">
+      <aside className="flex flex-col-reverse mx-1 items-end gap-3 sm:gap-0 sm:inline ">
  
         <ul className="flex sm:flex-col m-1  sm:gap-1 items-center gap-3 text-sm  font-semibold text-gray-700">
           <a href="/contact-us" className=" hover:text-purple-950 hover:underline">
