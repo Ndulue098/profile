@@ -27,7 +27,7 @@ export default function About() {
         </p>
 
         <p className="text-gray-700 leading-relaxed ml-1">
-          Though I study biology, my heart has always leaned toward technology and creation.  
+          Though I study building, my heart has always leaned toward technology and creation.  
           I love building things that make life easier and more interesting — from small code projects 
           to digital concepts that reflect my imagination. For me, coding is not just a skill; it’s 
           a way to bring thoughts to life.
