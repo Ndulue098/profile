@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   name: z.string().min(2, "Full name must be at least 2 characters"),
@@ -12,7 +13,7 @@ const formSchema = z.object({
 });
 
 export default function Contact() {
- const form = useForm({
+  const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -22,26 +23,66 @@ export default function Contact() {
     },
   });
 
-  const { register, handleSubmit, formState: { errors } } = form;
- 
-  function onSubmit(data) {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = form;
+
+  async function onSubmit(data) {
     console.log(data);
+    reset()
+    // emailjs
+    //   .send(
+    //     "service_s6huptd", // ✅ your service ID
+    //     "template_pptgnvg", // ✅ your template ID
+    //     {
+    //       from_name: data.name,
+    //       from_email: data.email,
+    //       subject: data.subject, 
+    //       message: data.message,
+    //     },
+    //     "NaAxsLsBOGPbQV2vt" // ✅ your public key
+    //   )
+
+    //   .sendForm("service_s6huptd", "template_pptgnvg", data, {
+    //     publicKey: "NaAxsLsBOGPbQV2vt",
+    //   })
+
+    //   .then(() => {
+    //     alert("✅ Message sent!");
+    //     reset(); 
+    //   })
+    //   .catch((error) => {
+    //     console.error("❌ Email send failed:", error);
+    //     alert("❌ Something went wrong.");
+    //   });
   }
 
   return (
-    <section >
-        <small className="mb-3 inline-block">
-            <a href="/" className="mr-1 font-semibold text-gray-600 capitalize">home</a>
-             &gt; <span className="font-semibold capitalize text-purple-800">contact Us</span>
-        </small>
-      <h3 className="text-3xl font-semibold mb-5 max-w-lg mx-auto border-b text-gray-900 ">Contact me</h3>
+    <section>
+      <small className="mb-3 inline-block">
+        <a href="/" className="mr-1 font-semibold text-gray-600 capitalize">
+          home
+        </a>
+        &gt;{" "}
+        <span className="font-semibold capitalize text-purple-800">
+          contact Us
+        </span>
+      </small>
+      <h3 className="text-3xl font-semibold mb-5 max-w-lg mx-auto border-b text-gray-900 ">
+        Contact me
+      </h3>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="space-y-2 max-w-lg mx-auto "
       >
         {/* Full Name */}
         <div>
-          <label className="block font-semibold text-gray-600 ">Full Name</label>
+          <label className="block font-semibold text-gray-600 ">
+            Full Name
+          </label>
           <input
             {...register("name")}
             className="border p-1 px-2 font-semibold text-base rounded w-full"
@@ -74,7 +115,7 @@ export default function Contact() {
             className="border p-1 px-2 font-semibold text-base rounded w-full"
           >
             <option value="">Select a Subject </option>
-            <option value="Support">Support</option>
+            <option value="Support">Job</option>
             <option value="Feedback">Feedback</option>
             <option value="General">General Inquiry</option>
           </select>
@@ -100,7 +141,7 @@ export default function Contact() {
         {/* Submit */}
         <button
           type="submit"
-          className="bg-purple-500 border font-semibold tracking-wider text-white px-3 w-full py-2 rounded-lg"
+          className="bg-purple-500 cursor-pointer border font-semibold tracking-wider text-white px-3 w-full py-2 rounded-lg"
         >
           Submit
         </button>
