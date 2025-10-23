@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import emailjs from '@emailjs/browser';
+// import emailjs from '@emailjs/browser';
 
 const formSchema = z.object({
   name: z.string().min(2, "Full name must be at least 2 characters"),
